@@ -1,10 +1,12 @@
 #!/bin/bash -e
 
+CURRENT_DIR=$(pwd)
+
 # validate inputs
-. validation.sh
+. "$CURRENT_DIR/validation.sh"
 
 # handle prerequisites
-. prereq.sh
+. "$CURRENT_DIR/prereq.sh"
 
 # install Siesta suite
-. siesta.sh
+. "$CURRENT_DIR/siesta.sh"

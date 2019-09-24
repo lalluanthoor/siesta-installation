@@ -5,7 +5,7 @@ cd "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Obj"
 sh "$SIESTA_DIR/Src/obj_setup.sh"
 
 # create arch.make file
-. arch.sh
+. "$CURRENT_DIR/arch.sh"
 
 # copy Obj directory for Transiesta
 cd "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION"
