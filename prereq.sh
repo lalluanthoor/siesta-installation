@@ -58,7 +58,7 @@ make PREFIX=$OPENBLAS_DIR LIBNAMESUFFIX=nonthreaded install
 cd $OPENBLAS_DIR && rm -rf "$(find $OPENBLAS_DIR -maxdepth 1 -type d -name xianyi-OpenBLAS*)"
 
 # install ScaLAPACK
-cd $SCALAPACK_DIR
+cd $SCALAPACK_DIR/scalapack_installer
 ./setup.py --prefix $SCALAPACK_DIR --blaslib=$OPENBLAS_DIR/lib/libopenblas_nonthreaded.a --lapacklib=$OPENBLAS_DIR/lib/libopenblas_nonthreaded.a --mpibindir=/usr/bin --mpiincdir=/usr/lib/x86_64-linux-gnu/openmpi/include
 
 # install Siesta dependencies
