@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-cd "$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Obj"
+cd "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Obj"
 
 cat <<EOF >arch.make
 .SUFFIXES:
@@ -39,17 +39,17 @@ FPPFLAGS = \$(DEFS_PREFIX)-DFC_HAVE_ABORT
 FPPFLAGS += -DMPI
 
 # flook
-INCFLAGS += -I$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/flook/$FLOOK_VERSION/include
-LDFLAGS += -L$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/flook/$FLOOK_VERSION/lib -Wl,-rpath=$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/flook/$FLOOK_VERSION/lib
+INCFLAGS += -I$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/flook/$FLOOK_VERSION/include
+LDFLAGS += -L$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/flook/$FLOOK_VERSION/lib -Wl,-rpath=$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/flook/$FLOOK_VERSION/lib
 LIBS += -lflookall -ldl
 COMP_LIBS += libfdict.a
 FPPFLAGS += -DSIESTA__FLOOK
 
 # netcdf
-INCFLAGS += -I$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/netcdf/$NC_VERSION/include
-LDFLAGS += -L$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/zlib/$ZLIB_VERSION/lib -Wl,-rpath=$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/zlib/$ZLIB_VERSION/lib
-LDFLAGS += -L$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/hdf5/$HDF_FULL_VERSION/lib -Wl,-rpath=$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/hdf5/$HDF_FULL_VERSION/lib
-LDFLAGS += -L$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/netcdf/$NC_VERSION/lib -Wl,-rpath=$BASE_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/netcdf/$NC_VERSION/lib
+INCFLAGS += -I$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/netcdf/$NC_VERSION/include
+LDFLAGS += -L$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/zlib/$ZLIB_VERSION/lib -Wl,-rpath=$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/zlib/$ZLIB_VERSION/lib
+LDFLAGS += -L$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/hdf5/$HDF_FULL_VERSION/lib -Wl,-rpath=$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/hdf5/$HDF_FULL_VERSION/lib
+LDFLAGS += -L$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/netcdf/$NC_VERSION/lib -Wl,-rpath=$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs/build/netcdf/$NC_VERSION/lib
 LIBS += -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lz
 COMP_LIBS += libncdf.a libfdict.a
 FPPFLAGS += -DCDF -DNCDF -DNCDF_4

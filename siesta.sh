@@ -2,7 +2,7 @@
 
 # generate sources
 cd "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Obj"
-sh ../Src/obj_setup.sh
+sh "$SIESTA_DIR/Src/obj_setup.sh"
 
 # create arch.make file
 . arch.sh
@@ -12,13 +12,13 @@ cd "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION"
 cp -r Obj Obj_ts
 
 # make Siesta
+cd "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Obj"
 make OBJDIR=Obj
 
 box_out "Siesta Installation OK"
 
 # make Transiesta
-cd "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION"
-cd Obj_ts
+cd "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Obj_ts"
 make transiesta OBJDIR=Obj_ts
 
 box_out "Transiesta Installation OK"
