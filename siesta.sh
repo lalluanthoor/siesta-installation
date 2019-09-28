@@ -2,7 +2,7 @@
 
 # generate sources
 cd "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Obj"
-sh "$SIESTA_DIR/Src/obj_setup.sh"
+sh "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Src/obj_setup.sh"
 
 # create arch.make file
 . "$CURRENT_DIR/arch.sh"
