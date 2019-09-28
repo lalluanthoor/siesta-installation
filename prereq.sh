@@ -11,10 +11,10 @@ box_out "Ubuntu package installation OK"
 
 # create installation directories
 if [[ ! -d $BASE_DIR ]]; then
-  mkdir -p $BASE_DIR
+  sudo mkdir -p $BASE_DIR
 fi
-mkdir $SIESTA_DIR $OPENBLAS_DIR $SCALAPACK_DIR
-chmod -R 777 $SIESTA_DIR $OPENBLAS_DIR $SCALAPACK_DIR
+sudo mkdir $SIESTA_DIR $OPENBLAS_DIR $SCALAPACK_DIR
+sudo chmod -R 777 $SIESTA_DIR $OPENBLAS_DIR $SCALAPACK_DIR
 
 # download and extract requried source files
 
@@ -59,7 +59,7 @@ cd $OPENBLAS_DIR && rm -rf "$(find $OPENBLAS_DIR -maxdepth 1 -type d -name xiany
 
 # install ScaLAPACK
 cd $SCALAPACK_DIR/scalapack_installer
-./setup.py --prefix $SCALAPACK_DIR --blaslib=$OPENBLAS_DIR/lib/libopenblas_nonthreaded.a --lapacklib=$OPENBLAS_DIR/lib/libopenblas_nonthreaded.a --mpibindir=/usr/bin --mpiincdir=/usr/lib/x86_64-linux-gnu/openmpi/include
+./setup.py --prefix $SCALAPACK_DIR --blaslib=$OPENBLAS_DIR/lib/libopenblas_nonthreaded.a --lapacklib=$OPENBLAS_DIR/lib/libopenblas_nonthreaded.a --mpibindir=/usr/bin --mpiincdir=/usr/lib/x86_64-linux-gnu/openmpi/include < "b"
 
 # install Siesta dependencies
 cd "$SIESTA_DIR/siesta-$SIESTA_FULL_VERSION/Docs"
